@@ -1,0 +1,243 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+body{
+    margin: 0;
+    background-color: black;
+}
+
+/* main{
+    display: grid;
+    grid-template-columns: 100vw;
+    grid-template-rows: 30vh 70vh;
+} */
+
+article:nth-of-type(1) h1, article:nth-of-type(1) p{
+    color: white;
+    /* grid-row: 1/2; */
+}
+
+article:nth-of-type(1){
+    height: 25vh;
+}
+
+article:nth-of-type(2){
+    /* grid-row: 2/3; */
+    /* background-color: red; */
+    position: relative;
+    height: 75vh;
+}
+
+article:nth-of-type(2) > div{
+    position: absolute;
+    width: .3em;
+    border-radius: .2em;
+    background-color: white;
+    left: calc(50% - .1em);
+    bottom: 0;
+    animation: piewww 6s cubic-bezier(.05,.26,.46,1.01) infinite;
+}
+
+@keyframes piewww{
+    0%{
+        height: 0;
+        top: 100%;
+    }
+    80%{
+        height: 0;
+        top: 100%;
+    }
+    85%{
+        height: 4em;
+    }
+    95%{
+        color: white;
+    }
+    100%{
+        color: transparent;
+        height: 0;
+        top: 25%;
+    }
+}
+
+article:nth-of-type(2) section::before{
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    width: 14em;
+    height: 14em;
+    border: dotted 1.5px white;
+    background-color: transparent;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+article:nth-of-type(2) section{
+    position: absolute;
+    background-image: repeating-conic-gradient(
+        white 0 2deg,
+        transparent 2deg 18deg 
+    );
+    width: 17em;
+    height: 17em;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: 25%;
+    transform: translate(-50%, -50%);
+}
+
+article:nth-of-type(2) section div:nth-of-type(1){
+    position: absolute;
+    border-radius: 50%;
+    border: dotted 8px white;
+    width: 7em;
+    height: 7em;
+    left: 5em;
+    top: 5em;
+    z-index: 6;
+    stroke-dashoffset: 40;
+    transform: rotate(10deg)
+}
+
+article:nth-of-type(2) section div:nth-of-type(1)::before{
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    width: 4em;
+    height: 4em;
+    background-color: black;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 4;
+}
+
+article:nth-of-type(2) section div:nth-of-type(1)::after{
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    border: dotted 2px white;
+    width: 3em;
+    height: 3em;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+}
+
+
+
+
+
+
+
+/* div:nth-of-type(1){
+    position: absolute;
+    width: .2em;
+    border-radius: .2em;
+    background-color: white;
+    left: calc(50% - .1em);
+    bottom: 0;
+    animation: piewww 6s cubic-bezier(.05,.26,.46,1.01) infinite;
+}
+
+@keyframes piewww{
+    0%{
+        height: 0;
+        bottom: 0;
+    }
+    80%{
+        height: 0;
+        bottom: 0;
+    }
+    85%{
+        height: 4em;
+    }
+    95%{
+        color: white;
+    }
+    100%{
+        color: transparent;
+        height: 0;
+        bottom: 26em;
+    }
+}
+
+div:nth-of-type(2)::before{
+    position: absolute;
+    content: "";
+    border-radius: 50%;
+    display: block;
+    width: 1.5em;
+    height: 1.5em;
+    left: calc(50% - .75em);
+    bottom: calc(50% - .75em);
+    background-image: radial-gradient(
+        black,
+        transparent
+    );
+    /* animation: bam 6s 6s infinite; */
+/* }
+
+@keyframes bam{
+    0%{
+        width: 2em;
+        height: 2em;
+        left: calc(50% - 1em);
+        bottom: calc(50% - 1em);
+    }
+    60%{
+        width: 6em;
+        height: 6em;
+        left: calc(50% - 3em);
+        bottom: calc(50% - 3em);
+    }
+    90%{
+        color: transparent;
+        width: 7.5em;
+        height: 7.5em;
+        left: calc(50% - 3.25em);
+        bottom: calc(50% - 3.25em);
+    }
+}
+
+div:nth-of-type(2){
+    position: absolute;
+    border-radius: 50%;
+    background-image: repeating-conic-gradient(
+        white 0 3deg,
+        transparent 0 10deg
+    );
+    animation: boem 6s 6s infinite;
+    z-index: 2;
+}
+
+@keyframes boem{
+    0%{
+        width: 0;
+        height: 0;
+        bottom: 26em;
+        left: 50%;
+    }
+    90%{
+        background-color: transparent;
+        width: 18em;
+        height: 18em;
+        bottom: 17em;
+        left: calc(50% - 9em);
+    }
+    100%{
+        background-color: transparent;
+        width: 18em;
+        height: 18em;
+        bottom: 17em;
+        left: calc(50% - 9em);
+    }
+} */ 
+
