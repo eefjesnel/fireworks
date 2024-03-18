@@ -4,7 +4,7 @@
     box-sizing: border-box;
     overflow: hidden;
     --fireworks-clr: white;
-    --animation-length: 6s;
+    --animation-length: 3s;
 }
 
 body{
@@ -30,7 +30,7 @@ article:nth-of-type(1){
     opacity: 0;
 }
 
-/* Firework animation */
+/* First firework animation */
 
 article:nth-of-type(2){
     height: calc( 100vh - var(--size-article, 15vh) - 10vw);
@@ -47,12 +47,12 @@ article:nth-of-type(2) section{
     place-items: center;
     position: absolute;
     bottom: 0;
-    animation: tjiewww 6s infinite linear;
+    animation: container var(--animation-length) infinite linear;
     width: var(--size-firework, 17rem);
     height: var(--size-firework, 17rem);
 }
 
-@keyframes tjiewww{
+@keyframes container{
     0%{
         bottom: calc(var(--size-firework, 17rem) / -2);
     }
@@ -82,39 +82,34 @@ article:nth-of-type(2) section div:nth-of-type(1){
         var(--fireworks-clr) 0 2deg,
         transparent 2deg 18deg 
     );
-    animation: swwiee 6s infinite linear;
+    animation: div1 var(--animation-length) infinite linear;
 }
 
-@keyframes swwiee{
-    50%{
+@keyframes div1{
+    45%{
        width: calc( var(--size-firework, 17rem) - var(--size-cmpnt4, 14rem));
        height: calc( var(--size-firework, 17rem) - var(--size-cmpnt4, 14rem));
        opacity: 1;
-       transform: rotate(0turn);
     }
     80%{
-        width: var(--size-firework, 17rem);
-        height: var(--size-firework, 17rem);
         opacity: 1;
     }
     100%{
         width: var(--size-firework, 17rem);
         height: var(--size-firework, 17rem);
         opacity: 0;
-        transform: rotate(1turn);
     }
 }
 
 /* einde eerste element in vuurwerk: de spijlen */
 
 article:nth-of-type(2) section div:nth-of-type(2){
-    border: dotted 1.5px var(--fireworks-clr);
+    border: dotted 2px var(--fireworks-clr);
     background-color: transparent;
-    opacity: 0;
-    animation: bam 6s infinite linear;
+    animation: div2 var(--animation-length) infinite linear;
 }
 
-@keyframes bam{
+@keyframes div2{
     0%{
         width: 0;
         height: 0;
@@ -126,11 +121,11 @@ article:nth-of-type(2) section div:nth-of-type(2){
         height: 0;
     }
     80%{
-        width: calc( var(--size-firework, 17rem) - var(--cmpnt2, 3rem));
-        height: calc( var(--size-firework, 17rem) - var(--cmpnt2, 3rem));
         opacity: 1;
     }
     100%{
+        width: calc( var(--size-firework, 17rem) - var(--cmpnt2, 3rem));
+        height: calc( var(--size-firework, 17rem) - var(--cmpnt2, 3rem));
         opacity: 0;
     }
 }
@@ -141,33 +136,24 @@ article:nth-of-type(2) section div:nth-of-type(3){
     height: calc( var(--size-firework, 17rem) - var(--size-cmpnt3, 10rem));
     stroke-dashoffset: 40;
     transform: rotate(10deg);
-    opacity: 0;
-    /* animation: poef2 6s infinite linear; */
+    animation: div3 var(--animation-length) infinite linear;
 }
 
-@keyframes poef2{
+@keyframes div3{
     0%{
-        width: 0;
-        height: 0;
         opacity: 0;
     }
     50%{
-        width: 0;
-        height: 0;
         opacity: 0;
     }
     60%{
-        width: calc( var(--size-firework, 17rem) - var(--size-cmpnt3, 10rem));
-        height: calc( var(--size-firework, 17rem) - var(--size-cmpnt3, 10rem));
         opacity: 1;
-        transform: rotate(0turn);
     }
     80%{
         opacity: 1; 
     }
     100%{
         opacity: 0;
-        transform: rotate(1turn);
     }
 }
 
@@ -179,45 +165,36 @@ article:nth-of-type(2) section div:nth-of-type(4){
         transparent 28%
     );
     z-index: 4;
-    /* animation: pjiew 6s infinite linear; */
-}
 
-@keyframes pjiew{
-    0%{
-        width: calc( var(--size-firework, 17rem) - var(--size-cmpnt4, 13rem));
-        height: calc( var(--size-firework, 17rem) - var(--size-cmpnt4, 13rem));
-    }
-    70%{
-        width: calc( var(--size-firework, 17rem) - var(--size-cmpnt4, 13rem));
-        height: calc( var(--size-firework, 17rem) - var(--size-cmpnt4, 13rem));
-    }
-    100%{
-        width: var(--size-firework, 17rem);
-        height: var(--size-firework, 17rem);
-    }
 }
 
 article:nth-of-type(2) section div:nth-of-type(5){
     border: dotted 2px var(--fireworks-clr);
     z-index: 5;
+    width: calc( var(--size-firework, 17rem) - var(--size-cmpnt4, 14rem));
+    height: calc( var(--size-firework, 17rem) - var(--size-cmpnt4, 14rem));
     background-color: transparent;
-    animation: poef 6s infinite linear;
+    animation: div5 var(--animation-length) infinite linear;
 }
 
-@keyframes poef{
+@keyframes div5{
     0%{
-        width: 0;
-        height: 0;
+        width: 2rem;
+        height: 2rem;
         opacity: 0;
     }
-    40%{
-        width: 0;
-        height: 0;
-        opacity: 1;
+    48%{
+        width: 2rem;
+        height: 2rem;
+        opacity: 0;
     }
-    50%{
+    55%{
         width: calc( var(--size-firework, 17rem) - var(--size-cmpnt4, 14rem));
         height: calc( var(--size-firework, 17rem) - var(--size-cmpnt4, 14rem));
+        opacity: 1;
+    }
+    60%{
+        opacity: 1;
     }
     80%{
         opacity: 1;
@@ -235,27 +212,30 @@ article:nth-of-type(2) section::after{
     width: var(--light, .3rem);
     height: var(--light, .3rem);
     background-color: var(--fireworks-clr);
-    z-index: 7;
-    animation: sizzle 6s infinite linear;
-    opacity: 1;
+    z-index: 10;
+    animation: divAfter var(--animation-length) infinite linear;
 }
 
-@keyframes sizzle{
+@keyframes divAfter{
     0%{
         opacity: 1;
     }
-    30%{
-        opacity: 1;
-    }
     40%{
+        opacity: 1;
+        scale: 1;
+    }
+    45%{
+        opacity: 1;
+        scale: 3;
+    }
+    50%{
         opacity: 0;
+        scale: 7;
     }
     100%{
         opacity: 0;
     }
 }
-
-
 
 article:nth-of-type(3){
     opacity: 0;
