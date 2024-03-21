@@ -519,9 +519,8 @@ article:nth-of-type(2) section:nth-of-type(3){
 /* Styling kleine explotion vuurwerkjes */
 
 section:nth-of-type(4), section:nth-of-type(5), section:nth-of-type(6), section:nth-of-type(7), section:nth-of-type(8){
-    width: 6rem;
-    height: 6rem;
-    background-color: red;
+    width: var(--explotionSize, 6rem);
+    height: var(--explotionSize, 6rem);
     transform-origin: center center;
     display: grid;
     place-items: center;
@@ -529,52 +528,111 @@ section:nth-of-type(4), section:nth-of-type(5), section:nth-of-type(6), section:
 
     div{
         grid-area: 1/1;
-        height: 2rem;
-        width: .3rem;
-        background-color: yellow;
+        height: var(--lineLength, 2rem);
+        width: var(--lineWidth, .3rem);
+        background-color: transparent;
         list-style-type: none;
         position: absolute;
-        /* animation in het midden??? */
-        top: calc(50% - 2rem);
-        left: calc(50% - .15em);
+        top: calc(50% - var(--lineLength, 2rem));
+        left: calc(50% - var(--lineWidth, .3rem));
         transform-origin: bottom center;
         border-radius: 3px;
-        animation: explosion var(--animation-length) infinite linear;
+    }
+    div::after{
+        content: "";
+        position: absolute;
+        bottom: 0;
+        height: var(--lineWidth, .3rem);
+        width: var(--lineWidth, .3rem);
+        animation: explosion 200ms infinite alternate calc(200ms / 100 * (6 * var(--indexExplotion)));
+        border-radius: 3px;
+        display: none;
     }
     div:nth-of-type(1){
         transform: rotate(60deg)
-        translateY(-10px)
+        translateY(var(--originSpace, -10px))
     }
     div:nth-of-type(2){
         transform: rotate(120deg)
-        translateY(-10px)
+        translateY(var(--originSpace, -10px))
     }
     div:nth-of-type(3){
         transform: rotate(180deg)
-        translateY(-10px)
+        translateY(var(--originSpace, -10px))
     }
     div:nth-of-type(4){
         transform: rotate(240deg)
-        translateY(-10px)
+        translateY(var(--originSpace, -10px))
     }
     div:nth-of-type(5){
         transform: rotate(300deg)
-        translateY(-10px)
+        translateY(var(--originSpace, -10px))
     }
     div:nth-of-type(6){
         transform: rotate(360deg)
-        translateY(-10px)
+        translateY(var(--originSpace, -10px))
     }
 }
 
-  @keyframes explosion {
-      0%{
-          height: 0
-      }
-      100%{
-        height: 2rem;  
-      }
-  }
+@keyframes explosion {
+    0%{
+        bottom: 0;
+        background-color: crimson;
+    }
+    10%{
+        background-color: darkorange;
+    }
+    30%{
+        background-color: gold;
+    }
+    50%{
+        background-color: limegreen;
+    }
+    70%{
+        background-color: dodgerblue;
+    }
+    80%{
+        opacity: 1;
+    }
+    90%{
+        background-color: blueviolet;
+    }
+    100%{
+        background-color: crimson;
+       height: 2rem;
+       opacity: 0;
+    }
+}
+
+section:nth-of-type(4){
+    --indexExplotion: 0;
+    left: var(--positionLeftStar1, 5vw);
+    bottom: var(--positionBottomStar1, 5vh);
+}
+
+section:nth-of-type(5){
+    --indexExplotion: 1;
+    left: var(--positionLeftStar2, 60vw);
+    bottom: var(--positionBottomStar2, 15vh);
+}
+
+section:nth-of-type(6){
+    --indexExplotion: 2;
+    left: var(--positionLeftStar3, 90vw);
+    bottom: var(--positionBottomStar3, 57vh);
+}
+
+section:nth-of-type(7){
+    --indexExplotion: 3;
+    left: var(--positionLeftStar4, 46vw);
+    bottom: var(--positionBottomStar4, 70vh);
+}
+
+section:nth-of-type(8){
+    --indexExplotion: 4;
+    left: var(--positionLeftStar5, 25vw);
+    bottom: var(--positionBottomStar5, 24vh);
+}
 
 /* Einde styling kleine explotion vuurwerkjes */
 
@@ -704,7 +762,15 @@ label:has( input:checked){
 
 body:has( input:checked) article:nth-of-type(2) section,
 body:has( input:checked) article:nth-of-type(2) section div{
-    --animation-length: 1.5s;
+    --animation-length: 1s;
+}
+
+body:has( input:checked) article:nth-of-type(2) section:nth-last-of-type(1) div::after,
+body:has( input:checked) article:nth-of-type(2) section:nth-last-of-type(2) div::after,
+body:has( input:checked) article:nth-of-type(2) section:nth-last-of-type(3) div::after,
+body:has( input:checked) article:nth-of-type(2) section:nth-last-of-type(4) div::after,
+body:has( input:checked) article:nth-of-type(2) section:nth-last-of-type(5) div::after{
+    display: block;
 }
 
 article:nth-of-type(2) article:has( input:checked) label::after{
@@ -767,7 +833,7 @@ body:has(article:nth-of-type(2) article option[value="sunny-blue"]:checked) div{
     }
 }
 
-@media only screen and (max-width: 390px){
+@media only screen and (max-width: 420px){
     *{
         --size-firework: 8rem;
         --cmpnt2: 1rem;
@@ -778,13 +844,45 @@ body:has(article:nth-of-type(2) article option[value="sunny-blue"]:checked) div{
         --borderSize: 1px;
         --borderSizeAfter: .5px;
         --position2: 10vw;
+        --explotionSize: 2rem;
+        --lineWidth: .1rem;
+        --lineLength: .6rem;
+        --originSpace: -5px;
     }
     article:nth-of-type(2) section:nth-of-type(1) div:nth-of-type(3){
         border: dotted 4px var(--fireworks-clr);
         transform: rotate(8deg);
     }
 
-    /* De select dropdown blijft ontzettend klein, ik begrijp niet waarom. */
+
+    section:nth-of-type(4){
+        left: var(--positionStar1, 3rem);
+        bottom: 5vh;
+    }
+    
+    section:nth-of-type(5){
+        left: var(--positionStar1, 60vw);
+        bottom: 15vh;
+    }
+    
+    section:nth-of-type(6){
+        left: var(--positionStar1, 90vw);
+        bottom: 57vh;
+    }
+    
+    section:nth-of-type(7){
+        left: var(--positionStar1, 46vw);
+        bottom: 70vh;
+    }
+    
+    section:nth-of-type(8){
+        --indexExplotion: 4;
+        left: var(--positionStar1, 25vw);
+        bottom: 24vh;
+    }
+
+    /* De select dropdown blijft ontzettend klein, ik begrijp niet waarom. 
+    Ik heb het getest op mijn telefoon. Hier werkt het wel normaal.*/
 
     /* option{
         font-size: 1rem;
@@ -792,8 +890,11 @@ body:has(article:nth-of-type(2) article option[value="sunny-blue"]:checked) div{
     } */
 }
 
+/* Style queries??? Begrijp niet waarom dit niet zou werken */
+/* 
 @container style(--background-color: deepskyblue){
-    article:nth-of-type(1){
-        background-color: yellow;
+    article:nth-of-type(1) p{
+        color: yellow;
+        font-family: Georgia, 'Times New Roman', Times, serif;
     }
-}
+} */
