@@ -5,7 +5,7 @@ css to the rescue fireworks van Eefje Snel
 Week 1 begon wat stroef door een gecanceld vliegtuig en ik die daardoor nog in Lanzarote zat. Ik heb daar wel de opdracht doorgenomen en besloten om vuurwerk te kiezen.
 Ik was die vrijdag wel bij het voortgangsgesprek waar ik liet zien wat mijn eerste design was. Ik kreeg wat feedback dat dat misschien wat te veel van het goede was en niet echt haalbaar in 4 weken. Na dit gesprek besloot ik om gewoon te beginnen met het vuurwerk te maken en de animatie erbij. De rest komt daarna wel.
 
-![foto van eerste designs](/codeRepositories/fireworks/images/eerste-schets.png)
+![foto van eerste designs](fireworks/images/eerste-schets.png)
 
 ## Week 2
 In week 2 begon ik dus gewoon met het maken van het vuurwerk en de animatie daarbij. Ik had een voorbeeld gezien dat ik ongeveer na wilde maken:
