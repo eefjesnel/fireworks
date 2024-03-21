@@ -60,7 +60,8 @@ Een aantal pijnpunten die ik onderweg tegenkwam waren:
 2. De animations op elkaar layeren. Het was lastig om alle animations zo op elkaar af te stemmen dat het echt vuurwerk leek.
 3. Has() was volledig niet voor mij en ik begreep nog niet helemaal was de regels waren. Maar nu ik het een beetje berijp is het echt een zegen.
 ![foto van has() in mijn code](/images/has.png)
-4. Style queries en layers. Hier liep ik volledig vast. Ik heb uiterraad opgezocht hoe het werkt, maar als ik het probeer gaat het niet echt best. Daarnaast heb ik het niet echt nodig voor mijn project. Vaak was has() de betere optie.
+4. Style queries en layers. Hier liep ik volledig vast. Ik heb uiterraad opgezocht hoe het werkt, maar als ik het probeer gaat het niet echt best. Daarnaast heb ik het niet echt nodig voor mijn project. Vaak was has() de betere optie. Update voor de style query: Ik heb nu een style query toegevoegd en ik begrijp nu eindelijk hoe het in elkaar zit. Ik had dit eerste gedaan met een media-query, maar dit is ook erg handig om te gebruiken. 
+![style queries in mijn code](/images/stylequery.png)
 5. Als laatste heb ik nog mijn site getest in Safari en ik moet zeggen dat het niet veel erger kan... alles is meteen overhoop, te veel om nog voor de deadline te fixen.
 ![mijn site op Safari](/images/safari.png)
 

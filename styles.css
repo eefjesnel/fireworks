@@ -48,7 +48,42 @@ h1{
     background-position:left bottom;
     background-clip: text;
     animation: gradient 1s infinite linear;
+
+    &:hover{
+        animation: fontje 1s infinite linear;
+    }
 }
+
+@keyframes fontje{
+    0%{
+        opacity: 0;
+    }
+    10%{
+        opacity: 1;
+        scale: 2;
+    }
+    25%{
+        opacity: 0;
+    }
+    30%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 0;
+    }
+    56%{
+        opacity: 1;
+        scale: 9;
+        transform: rotate(2turn);
+    }
+    70%{
+        opacity: 0;
+    }
+    80%{
+        opacity: 1;
+    }
+}
+
 
 /* Algemene styling voor firework animation */
 
@@ -406,10 +441,10 @@ article:nth-of-type(2) section:nth-of-type(3){
         bottom: calc(var(--size-firework, 17rem) / -2);
     }
     40%{
-        bottom: calc(70% - var(--size-firework, 17rem));
+        bottom: calc(var(--hoogteFirework, 70%) - var(--size-firework, 17rem));
     }
     100%{
-        bottom: calc(70% - var(--size-firework, 17rem));
+        bottom: calc(var(--hoogteFirework, 70%) - var(--size-firework, 17rem));
     }
 }
 
@@ -849,37 +884,7 @@ body:has(article:nth-of-type(2) article option[value="sunny-blue"]:checked) div{
         --lineLength: .6rem;
         --originSpace: -5px;
     }
-    article:nth-of-type(2) section:nth-of-type(1) div:nth-of-type(3){
-        border: dotted 4px var(--fireworks-clr);
-        transform: rotate(8deg);
-    }
 
-
-    section:nth-of-type(4){
-        left: var(--positionStar1, 3rem);
-        bottom: 5vh;
-    }
-    
-    section:nth-of-type(5){
-        left: var(--positionStar1, 60vw);
-        bottom: 15vh;
-    }
-    
-    section:nth-of-type(6){
-        left: var(--positionStar1, 90vw);
-        bottom: 57vh;
-    }
-    
-    section:nth-of-type(7){
-        left: var(--positionStar1, 46vw);
-        bottom: 70vh;
-    }
-    
-    section:nth-of-type(8){
-        --indexExplotion: 4;
-        left: var(--positionStar1, 25vw);
-        bottom: 24vh;
-    }
 
     /* De select dropdown blijft ontzettend klein, ik begrijp niet waarom. 
     Ik heb het getest op mijn telefoon. Hier werkt het wel normaal.*/
@@ -891,10 +896,22 @@ body:has(article:nth-of-type(2) article option[value="sunny-blue"]:checked) div{
 }
 
 /* Style queries??? Begrijp niet waarom dit niet zou werken */
-/* 
-@container style(--background-color: deepskyblue){
-    article:nth-of-type(1) p{
-        color: yellow;
-        font-family: Georgia, 'Times New Roman', Times, serif;
+
+/* @container style(--background-color: deepskyblue){
+    h1{
+        --gradientkleur1: dodgerblue;
+        --gradientkleur2: lightskyblue;
     }
 } */
+
+@container style(--size-firework: 8rem){
+    /* Ik heb een style query nu gebruikt als een soort vervanging voor een media query. Ik weet niet helemaal of dat de bedoeling is,
+    maar ik begrijp nu wel hoe het werkt :) */
+    article:nth-of-type(2) section:nth-of-type(1) div:nth-of-type(3){
+        border: dotted 4px var(--fireworks-clr);
+        transform: rotate(8deg);
+    }
+    *{
+        --hoogteFirework: 80%;
+    }
+}
