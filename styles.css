@@ -883,6 +883,7 @@ body:has(article:nth-of-type(2) article option[value="sunny-blue"]:checked) div{
         --lineWidth: .1rem;
         --lineLength: .6rem;
         --originSpace: -5px;
+        --hoogteFirework: 80%;
     }
 
 
@@ -910,8 +911,5 @@ body:has(article:nth-of-type(2) article option[value="sunny-blue"]:checked) div{
     article:nth-of-type(2) section:nth-of-type(1) div:nth-of-type(3){
         border: dotted 4px var(--fireworks-clr);
         transform: rotate(8deg);
-    }
-    *{
-        --hoogteFirework: 80%;
     }
 }
