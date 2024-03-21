@@ -24,36 +24,42 @@ article{
     width: 100vw;
 }
 
-article:nth-of-type(1) h1, article:nth-of-type(1) p{
+article:nth-of-type(1) p, label{
     color: var(--fireworks-clr);
+    font-family: sans-serif;
 }
 
 article:nth-of-type(1){
-    height: var(--size-article, 15vh);
+    height: var(--size-article, 10vh);
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-article:nth-of-type(1) h1{
+h1{
     font-family: sans-serif;
-    font-weight: 200;
+    font-size: 1.4rem;
+    font-weight: 400;
     letter-spacing: 3px;
-}
-
-@keyframes fontje{
-    0%{
-        font-variation-settings: "ELGR" 0, "ELSH" 0;
-    }
-    100%{
-        font-variation-settings: "ELGR" 0, "ELSH" 16;
-    }
+    color: transparent;
+    background-image: repeating-linear-gradient(
+        45deg,
+        var(--gradientkleur1, deeppink),
+        var(--gradientkleur2, hotpink),
+        var(--gradientkleur1, deeppink),
+        var(--gradientkleur2, hotpink),
+        var(--gradientkleur1, deeppink)
+    );
+    background-size: 200% 200%;
+    background-position:left bottom;
+    background-clip: text;
+    animation: gradient 1s infinite linear;
 }
 
 /* Firework animation */
 
 article:nth-of-type(2){
-    height: calc( 100vh - var(--size-article, 15vh) - 10vw);
+    height: calc( 100vh - var(--size-article, 10vh));
     position: relative;
     display: flex;
     flex-direction: column;
@@ -67,6 +73,9 @@ article:nth-of-type(2) section{
     place-items: center;
     position: absolute;
     bottom: 0;
+}
+
+section:nth-of-type(1), section:nth-of-type(2), section:nth-of-type(3){
     width: var(--size-firework, 17rem);
     height: var(--size-firework, 17rem);
 }
@@ -75,12 +84,12 @@ article:nth-of-type(2) section{
 
 /* Algemene styling voor divjes */
 
-article:nth-of-type(2) section div{
+section div{
     grid-area: 1/1;
     border-radius: 50%;
 }
 
-section::after{
+section:nth-of-type(1)::after, section:nth-of-type(2)::after, section:nth-of-type(3)::after{
     border-radius: 50%;
     content: "";
     position: absolute;
@@ -94,7 +103,7 @@ section::after{
 
 /* vuurwerk nummer 1 */
 
-article:nth-of-type(2) .nummer1{
+article:nth-of-type(2) section:nth-of-type(1){
     left: calc( 50% - var(--position1, 40vw));
     animation: container var(--animation-length) infinite linear;
 }
@@ -104,14 +113,14 @@ article:nth-of-type(2) .nummer1{
         bottom: calc(var(--size-firework, 17rem) / -2);
     }
     40%{
-        bottom: calc(100% - var(--size-firework, 17rem));
+        bottom: calc(90% - var(--size-firework, 17rem));
     }
     100%{
-        bottom: calc(100% - var(--size-firework, 17rem));
+        bottom: calc(90% - var(--size-firework, 17rem));
     }
 }
 
-.nummer1 div:nth-of-type(1){
+article:nth-of-type(2) section:nth-of-type(1) div:nth-of-type(1){
     background-image: repeating-conic-gradient(
         var(--fireworks-clr) 0 2deg,
         transparent 2deg 18deg 
@@ -135,7 +144,7 @@ article:nth-of-type(2) .nummer1{
     }
 }
 
-.nummer1 div:nth-of-type(2){
+article:nth-of-type(2) section:nth-of-type(1) div:nth-of-type(2){
     border: dotted 2px var(--fireworks-clr);
     background-color: transparent;
     animation: div2 var(--animation-length) infinite linear;
@@ -162,7 +171,7 @@ article:nth-of-type(2) .nummer1{
     }
 }
 
-.nummer1 div:nth-of-type(3){
+article:nth-of-type(2) section:nth-of-type(1) div:nth-of-type(3){
     border: dotted 8px var(--fireworks-clr);
     width: calc( var(--size-firework, 17rem) - var(--size-cmpnt3, 10rem));
     height: calc( var(--size-firework, 17rem) - var(--size-cmpnt3, 10rem));
@@ -189,7 +198,7 @@ article:nth-of-type(2) .nummer1{
     }
 }
 
-.nummer1 div:nth-of-type(4){
+article:nth-of-type(2) section:nth-of-type(1) div:nth-of-type(4){
     width: calc( var(--size-firework, 17rem) - var(--size-cmpnt4, 13rem));
     height: calc( var(--size-firework, 17rem) - var(--size-cmpnt4, 13rem));
     background-image: radial-gradient(
@@ -199,7 +208,7 @@ article:nth-of-type(2) .nummer1{
     z-index: 4;
 }
 
-.nummer1 div:nth-of-type(5){
+article:nth-of-type(2) section:nth-of-type(1) div:nth-of-type(5){
     border: dotted 2px var(--fireworks-clr);
     z-index: 5;
     width: calc( var(--size-firework, 17rem) - var(--size-cmpnt4, 14rem));
@@ -236,7 +245,7 @@ article:nth-of-type(2) .nummer1{
     }
 }
 
-.nummer1::after{
+article:nth-of-type(2) section:nth-of-type(1)::after{
     animation: divAfter var(--animation-length) infinite linear;
 }
 
@@ -265,7 +274,7 @@ article:nth-of-type(2) .nummer1{
 
 /* vuurwerk nummer 2 */
 
-article:nth-of-type(2) .nummer2{
+article:nth-of-type(2) section:nth-of-type(2){
     animation: container2 var(--animation-length) infinite linear var(--delay2);
 }
 
@@ -281,7 +290,7 @@ article:nth-of-type(2) .nummer2{
     }
 }
 
-.nummer2 div:nth-of-type(1){
+article:nth-of-type(2) section:nth-of-type(2) div:nth-of-type(1){
     --index: 1;
     background-color: transparent;
     animation: border var(--animation-length) infinite linear calc( var(--delay2) + var(--animation-length) / 100 * ( 2 * var(--index)) ) ;
@@ -313,25 +322,25 @@ article:nth-of-type(2) .nummer2{
     }
 }
 
-.nummer2 div:nth-of-type(2){
+article:nth-of-type(2) section:nth-of-type(2) div:nth-of-type(2){
     --index: 2;
     opacity: 0;
     animation: border var(--animation-length) infinite linear calc( var(--delay2) + var(--animation-length) / 100 * ( 2 * var(--index)) ) ;
 }
 
-.nummer2 div:nth-of-type(3){
+article:nth-of-type(2) section:nth-of-type(2) div:nth-of-type(3){
     --index: 3;
     animation: border var(--animation-length) infinite linear calc( var(--delay2) + var(--animation-length) / 100 * ( 2 * var(--index)) ) ;
 }
 
-.nummer2 div:nth-of-type(4){
+article:nth-of-type(2) section:nth-of-type(2) div:nth-of-type(4){
     --index: 4;
     background-color: transparent;
     border: 5px solid var(--fireworks-clr);
     animation: border var(--animation-length) infinite linear calc( var(--delay2) + var(--animation-length) / 100 * ( 2 * var(--index)) ) ;
 }
 
-.nummer2 div:nth-of-type(5){
+article:nth-of-type(2) section:nth-of-type(2) div:nth-of-type(5){
     --index: 5;
     opacity: 0;
     background-color: transparent;
@@ -339,7 +348,7 @@ article:nth-of-type(2) .nummer2{
     
 }
 
-.nummer2::after{
+article:nth-of-type(2) section:nth-of-type(2)::after{
     animation: divAfter2 var(--animation-length) infinite linear var(--delay2);
 }
 
@@ -371,7 +380,7 @@ article:nth-of-type(2) .nummer2{
 
 /* vuurwerk nummer 3 */
 
-article:nth-of-type(2) .nummer3{
+article:nth-of-type(2) section:nth-of-type(3){
     left: calc( 50% + var(--position2, 20vw));
     animation: container3 var(--animation-length) infinite linear var(--delay3);
 }
@@ -388,7 +397,7 @@ article:nth-of-type(2) .nummer3{
     }
 }
 
-.nummer3 div:nth-of-type(1){
+article:nth-of-type(2) section:nth-of-type(3) div:nth-of-type(1){
     opacity: 1;
     background-image: radial-gradient(
         var(--fireworks-clr),
@@ -418,7 +427,7 @@ article:nth-of-type(2) .nummer3{
     }
 }
 
-.nummer3 div:nth-of-type(2){
+article:nth-of-type(2) section:nth-of-type(3) div:nth-of-type(2){
     border: dotted 2px var(--fireworks-clr);
     background-color: transparent;
     width: var(--size-firework, 17rem);
@@ -446,7 +455,7 @@ article:nth-of-type(2) .nummer3{
     }
 }
 
-.nummer3 div:nth-of-type(3){
+article:nth-of-type(2) section:nth-of-type(3) div:nth-of-type(3){
     border: none;
     background-image: repeating-conic-gradient(
         var(--fireworks-clr) 0 2deg,
@@ -481,7 +490,7 @@ article:nth-of-type(2) .nummer3{
     }
 }
 
-.nummer3 div:nth-of-type(4){
+article:nth-of-type(2) section:nth-of-type(3) div:nth-of-type(4){
     background-image: radial-gradient(
         var(--background-color) 72%,
         transparent 28%
@@ -491,7 +500,7 @@ article:nth-of-type(2) .nummer3{
     height: 5rem; 
 }
 
-.nummer3 div:nth-of-type(5){
+article:nth-of-type(2) section:nth-of-type(3) div:nth-of-type(5){
     border: dotted 2px var(--fireworks-clr);
     z-index: 5;
     background-color: transparent;
@@ -518,7 +527,7 @@ article:nth-of-type(2) .nummer3{
     }
 }
 
-.nummer3::after{
+article:nth-of-type(2) section:nth-of-type(3)::after{
     animation: divAfter3 var(--animation-length) infinite linear var(--delay3);
     /* var(--delay3) */
 }
@@ -544,12 +553,198 @@ article:nth-of-type(2) .nummer3{
 
 /* Einde vuurwerk nummer 3 */
 
-article:nth-of-type(2) article{
-    background-color: white;
-    width: 30vw;
-    border-radius: 5px;
+/* Styling kleine explotion vuurwerkjes */
+
+section:nth-of-type(4), section:nth-of-type(5), section:nth-of-type(6), section:nth-of-type(7), section:nth-of-type(8){
+    width: 6rem;
+    height: 6rem;
+    background-color: red;
+    transform-origin: center center;
+    display: grid;
+    align-items: center;
 }
 
+section:nth-of-type(4) div, section:nth-of-type(5) div, section:nth-of-type(6) div, section:nth-of-type(7) div, section:nth-of-type(8) div{
+    grid-area: 1/1;
+    height: 2rem;
+    width: .3rem;
+    background-color: yellow;
+    border-radius: 0;
+    list-style-type: none;
+    position: absolute;
+    /* animation in het midden??? */
+    top: calc(50% - 2rem);
+    left: calc(50% - .15em);
+    transform-origin: bottom center;
+    border-radius: 3px;
+    animation: explosion var(--animation-length) infinite linear;
+}
+
+section:nth-of-type(4) div:nth-of-type(1), section:nth-of-type(5) div:nth-of-type(1), section:nth-of-type(6) div:nth-of-type(1), section:nth-of-type(7) div:nth-of-type(1), section:nth-of-type(8) div:nth-of-type(1){
+    transform: rotate(60deg)
+      translateY(-10px)
+  }
+  
+  section:nth-of-type(4) div:nth-of-type(2), section:nth-of-type(5) div:nth-of-type(2), section:nth-of-type(6) div:nth-of-type(2), section:nth-of-type(7) div:nth-of-type(2), section:nth-of-type(8) div:nth-of-type(2){
+    transform: rotate(120deg)
+          translateY(-10px)
+  }
+  
+  section:nth-of-type(4) div:nth-of-type(3), section:nth-of-type(5) div:nth-of-type(3), section:nth-of-type(6) div:nth-of-type(3), section:nth-of-type(7) div:nth-of-type(3), section:nth-of-type(8) div:nth-of-type(3){
+    transform: rotate(180deg)
+          translateY(-10px)
+  }
+  
+  section:nth-of-type(4) div:nth-of-type(4), section:nth-of-type(5) div:nth-of-type(4), section:nth-of-type(6) div:nth-of-type(4), section:nth-of-type(7) div:nth-of-type(4), section:nth-of-type(8) div:nth-of-type(4){
+    transform: rotate(240deg)
+          translateY(-10px)
+  }
+  
+  section:nth-of-type(4) div:nth-of-type(5), section:nth-of-type(5) div:nth-of-type(5), section:nth-of-type(6) div:nth-of-type(5), section:nth-of-type(7) div:nth-of-type(5), section:nth-of-type(8) div:nth-of-type(5){
+    transform: rotate(300deg)
+          translateY(-10px)
+  }
+  
+  section:nth-of-type(4) div:nth-of-type(6), section:nth-of-type(5) div:nth-of-type(6), section:nth-of-type(6) div:nth-of-type(6), section:nth-of-type(7) div:nth-of-type(6), section:nth-of-type(8) div:nth-of-type(6){
+    transform: rotate(360deg)
+        translateY(-10px) 
+  }
+
+  @keyframes explosion {
+      0%{
+          height: 0
+      }
+      100%{
+        height: 2rem;  
+      }
+  }
+
+/* Einde styling kleine explotion vuurwerkjes */
+
+/* Styling van keuzemenu */
+
+article:nth-of-type(2) article{
+    height: auto;
+    justify-content: center;
+}
+
+article:nth-of-type(2) article form{
+    display: flex;
+}
+
+select, label{
+    margin: 0 .3rem;
+    width: 7rem;
+    padding: .5rem;
+    border-radius: 20px;
+    border: none;
+    color: white;
+    background-image: repeating-linear-gradient(
+        45deg,
+        var(--gradientkleur1, deeppink),
+        var(--gradientkleur2, hotpink),
+        var(--gradientkleur1, deeppink),
+        var(--gradientkleur2, hotpink),
+        var(--gradientkleur1, deeppink)
+    );
+    background-size: 200% 200%;
+    background-position:left bottom;
+    animation: gradient 1s infinite linear;
+    -webkit-appearance: none;
+    text-align: center;
+    font-size: .8rem;
+}
+
+@keyframes gradient{
+    0%{
+        background-position: left bottom;
+    }
+    100%{
+        background-position: right top;
+    }
+}
+
+select:hover{
+    cursor: pointer;
+    --gradientkleur1: dodgerblue;
+    --gradientkleur2: lightskyblue;
+    animation: gradient 1s infinite linear;
+}
+
+select:focus{
+    border: none;
+}
+
+label{
+    color: white;
+    font-size: .8rem;
+    position: relative;
+    text-align: end;
+    padding-right: 1.3em;
+}
+
+label::after{
+    content: "";
+    position: absolute;
+    left: .7rem;
+    top: calc(50% - .35rem);
+    width: .7rem;
+    height: .7rem;
+    background-color: deeppink;
+    border-radius: 50%;
+}
+
+label::before{
+    content: "";
+    position: absolute;
+    left: .5rem;
+    top: calc(50% - .47rem);
+    width: 1.7rem;
+    height: 1rem;
+    background-color: mistyrose;
+    border-radius: 30% 30% 30% 30% / 50% 50% 50% 50% ;
+}
+
+@keyframes smooth{
+    0%{
+        left: .7rem; 
+        background-color: deeppink;
+    }
+    100%{
+        left: 1.3rem;
+        background-color: dodgerblue;
+    }
+}
+
+input{
+    -webkit-appearance: none;
+}
+
+/* has() toegepast met het keuzemenu */
+
+label:has( input:checked){
+    --gradientkleur1: dodgerblue;
+    --gradientkleur2: lightskyblue;
+}
+
+body:has( input:checked) article:nth-of-type(2) section,
+body:has( input:checked) article:nth-of-type(2) section div{
+    --animation-length: 1.5s;
+}
+
+article:nth-of-type(2) article:has( input:checked) label::after{
+    left: 1.3rem;
+    background-color: dodgerblue;
+    animation: smooth .3s 1 linear;
+}
+
+/* Hoe zou ik dit anders moeten schrijven? Nu staat hij eigenlijk altijd op roze maar ik wil dus dat de animation van hierboven ook omgedraaid werkt. */
+
+/* article:nth-of-type(2) article:not( input:checked) label::after{
+    left: .7rem; 
+    background-color: deeppink;
+    animation: smooth .3s 1 linear reverse;
+} */
 
 article:nth-of-type(2):has( article option[value="blue"]:checked) div,
 article:nth-of-type(2):has( article option[value="blue"]:checked) section::after{
@@ -578,5 +773,5 @@ body:has(article:nth-of-type(2) article option[value="rainy-grey"]:checked) div{
 
 body:has(article:nth-of-type(2) article option[value="sunny-blue"]:checked),
 body:has(article:nth-of-type(2) article option[value="sunny-blue"]:checked) div{
-    --background-color: #00C6E0;
+    --background-color: deepskyblue;
 }
