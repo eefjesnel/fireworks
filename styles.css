@@ -64,27 +64,23 @@ article:nth-of-type(2){
         place-items: center;
         position: absolute;
         bottom: 0;
+        width: var(--size-firework, 17rem);
+        height: var(--size-firework, 17rem);
 
+        &::after{
+            border-radius: 50%;
+            content: "";
+            position: absolute;
+            width: var(--fire, .3rem);
+            height: var(--fire, .3rem);
+            background-color: var(--fireworks-clr);
+            z-index: 10;
+        }
         div{
             grid-area: 1/1;
             border-radius: 50%;
         }
     }
-}
-
-section:nth-of-type(1), section:nth-of-type(2), section:nth-of-type(3){
-    width: var(--size-firework, 17rem);
-    height: var(--size-firework, 17rem);
-}
-
-section:nth-of-type(1)::after, section:nth-of-type(2)::after, section:nth-of-type(3)::after{
-    border-radius: 50%;
-    content: "";
-    position: absolute;
-    width: var(--fire, .3rem);
-    height: var(--fire, .3rem);
-    background-color: var(--fireworks-clr);
-    z-index: 10;
 }
 
 /* Einde algemene styling voor firework animation */
@@ -116,8 +112,8 @@ article:nth-of-type(2) section:nth-of-type(1){
         animation: div3 var(--animation-length) infinite linear; 
     }
     div:nth-of-type(4){
-        width: calc( var(--size-firework, 17rem) - var(--size-cmpnt4, 13rem));
-        height: calc( var(--size-firework, 17rem) - var(--size-cmpnt4, 13rem));
+        width: calc( var(--size-firework, 17rem) - var(--size-cmpnt5, 13rem));
+        height: calc( var(--size-firework, 17rem) - var(--size-cmpnt5, 13rem));
         background-image: radial-gradient(
             var(--background-color) 72%,
             transparent 28%
@@ -131,6 +127,9 @@ article:nth-of-type(2) section:nth-of-type(1){
         height: calc( var(--size-firework, 17rem) - var(--size-cmpnt4, 14rem));
         background-color: transparent;
         animation: div5 var(--animation-length) infinite linear;
+    }
+    &::after{
+        animation: divAfter var(--animation-length) infinite linear;
     }
 }
 
@@ -231,10 +230,6 @@ article:nth-of-type(2) section:nth-of-type(1){
     }
 }
 
-article:nth-of-type(2) section:nth-of-type(1)::after{
-    animation: divAfter var(--animation-length) infinite linear;
-}
-
 @keyframes divAfter{
     0%{
         opacity: 1;
@@ -287,6 +282,9 @@ article:nth-of-type(2) section:nth-of-type(2){
         opacity: 0;
         background-color: transparent; 
     }
+    &::after{
+        animation: divAfter2 var(--animation-length) infinite linear var(--delay2);
+    }
 }
 
 @keyframes container2{
@@ -311,7 +309,7 @@ article:nth-of-type(2) section:nth-of-type(2){
         opacity: 0;  
     }
     45%{
-       border: 4px solid var(--fireworks-clr);
+       border: var(--borderSize, 4px) solid var(--fireworks-clr);
        width: 3rem;
        height: 3rem;
        opacity: 1;
@@ -320,15 +318,11 @@ article:nth-of-type(2) section:nth-of-type(2){
         opacity: 1;
     }
     100%{
-        border: 1px solid var(--fireworks-clr);
+        border: var(--borderSizeAfter, 1px) solid var(--fireworks-clr);
         width: var(--size-firework, 17rem);
         height: var(--size-firework, 17rem);
         opacity: 0;
     }
-}
-
-article:nth-of-type(2) section:nth-of-type(2)::after{
-    animation: divAfter2 var(--animation-length) infinite linear var(--delay2);
 }
 
 @keyframes divAfter2{
@@ -391,16 +385,19 @@ article:nth-of-type(2) section:nth-of-type(3){
             transparent 28%
         );
         z-index: 4;
-        width: 5rem;
-        height: 5rem; 
+        width: var(--background-circle, 5rem);
+        height: var(--background-circle, 5rem); 
     }
     div:nth-of-type(5){
         border: dotted 2px var(--fireworks-clr);
         z-index: 5;
         background-color: transparent;
-        width: 4.5rem;
-        height: 4.5rem;
+        width: calc( var(--background-circle, 5rem) - .5rem);
+        height: calc( var(--background-circle, 5rem) - .5rem);
         animation: div5-3 var(--animation-length) infinite linear var(--delay3);
+    }
+    &::after{
+        animation: divAfter3 var(--animation-length) infinite linear var(--delay3);
     }
 }
 
@@ -498,10 +495,6 @@ article:nth-of-type(2) section:nth-of-type(3){
     }
 }
 
-article:nth-of-type(2) section:nth-of-type(3)::after{
-    animation: divAfter3 var(--animation-length) infinite linear var(--delay3);
-}
-
 @keyframes divAfter3{
     0%{
         opacity: 1;
@@ -597,7 +590,7 @@ article:nth-of-type(2) article{
 }
 
 
-select, label{
+select{
     margin: 0 .3rem;
     width: 7rem;
     padding: .5rem;
@@ -618,6 +611,16 @@ select, label{
     -webkit-appearance: none;
     text-align: center;
     font-size: .8rem;
+
+    &:hover{
+        cursor: pointer;
+        --gradientkleur1: dodgerblue;
+        --gradientkleur2: lightskyblue;
+        animation: gradient 1s infinite linear;
+    }
+    &:focus{
+        outline-style: none;
+    }
 }
 
 @keyframes gradient{
@@ -629,33 +632,45 @@ select, label{
     }
 }
 
-select{
-    :hover{
-        cursor: pointer;
-        --gradientkleur1: dodgerblue;
-        --gradientkleur2: lightskyblue;
-        animation: gradient 1s infinite linear;
-    }
-    :focus{
-        border: none;
-    }
-}
-
 label{
     color: white;
     font-size: .8rem;
     position: relative;
     text-align: end;
-    padding-right: 1.3em;
+    padding: .5rem 1.3em .5rem .5rem;
     font-family: sans-serif;
+    margin: 0 .3rem;
+    width: 7rem;
+    border-radius: 20px;
+    border: none;
+    background-image: repeating-linear-gradient(
+        45deg,
+        var(--gradientkleur1, deeppink),
+        var(--gradientkleur2, hotpink),
+        var(--gradientkleur1, deeppink),
+        var(--gradientkleur2, hotpink),
+        var(--gradientkleur1, deeppink)
+    );
+    background-size: 200% 200%;
+    background-position:left bottom;
+    animation: gradient 1s infinite linear;
+    -webkit-appearance: none;
 
     input{
         -webkit-appearance: none;
     }
-}
-
-label::before{
-    content: "";
+    &::after{
+        content: "";
+        position: absolute;
+        left: .7rem;
+        top: calc(50% - .35rem);
+        width: .7rem;
+        height: .7rem;
+        background-color: deeppink;
+        border-radius: 50%;
+    }
+    &::before{
+        content: "";
     position: absolute;
     left: .5rem;
     top: calc(50% - .47rem);
@@ -663,20 +678,11 @@ label::before{
     height: 1rem;
     background-color: mistyrose;
     border-radius: 30% 30% 30% 30% / 50% 50% 50% 50% ;
+    }
+    &:hover{
+        cursor: pointer;
+    }
 }
-
-label::after{
-    content: "";
-    position: absolute;
-    left: .7rem;
-    top: calc(50% - .35rem);
-    width: .7rem;
-    height: .7rem;
-    background-color: deeppink;
-    border-radius: 50%;
-}
-
-/* kan de before en after niet nesten, dan doet de has() het niet meer goed. */
 
 @keyframes smooth{
     0%{
@@ -746,3 +752,48 @@ body:has(article:nth-of-type(2) article option[value="sunny-blue"]:checked) div{
 }
 
 /* Einde has() */
+
+/* Mediaqueries */
+
+@media (prefers-reduced-motion: reduce){
+    *{
+        --animation-length: 15s;
+    }
+    article:nth-of-type(2) label{
+        display: none;
+    }
+    section:nth-of-type(4), section:nth-of-type(5), section:nth-of-type(6), section:nth-of-type(7), section:nth-of-type(8){
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 390px){
+    *{
+        --size-firework: 8rem;
+        --cmpnt2: 1rem;
+        --size-cmpnt3: 5rem;
+        --size-cmpnt4: 6.5rem;
+        --size-cmpnt5: 6rem;
+        --background-circle: 3rem;
+        --borderSize: 1px;
+        --borderSizeAfter: .5px;
+        --position2: 10vw;
+    }
+    article:nth-of-type(2) section:nth-of-type(1) div:nth-of-type(3){
+        border: dotted 4px var(--fireworks-clr);
+        transform: rotate(8deg);
+    }
+
+    /* De select dropdown blijft ontzettend klein, ik begrijp niet waarom. */
+
+    /* option{
+        font-size: 1rem;
+        width: 7rem;
+    } */
+}
+
+@container style(--background-color: deepskyblue){
+    article:nth-of-type(1){
+        background-color: yellow;
+    }
+}
