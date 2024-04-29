@@ -17,6 +17,8 @@
 
     --delay2: -2s;
     --delay3: -4.5s;
+
+    --font-length: 1s;
 }
 
 :root:has(option[value="blue"]:checked) {
@@ -118,7 +120,7 @@ h1 {
     background-position: left bottom;
     background-clip: text;
     animation: gradient 1s infinite linear,
-        font 1s infinite alternate;
+        font var(--font-length) infinite alternate;
 }
 
 @keyframes font {
@@ -975,8 +977,9 @@ label {
 /****************/
 
 @media (prefers-reduced-motion: reduce) {
-    * {
+    :root {
         --animation-length: 15s;
+        --font-length: 15s;
     }
 
     article:nth-of-type(2) label {
