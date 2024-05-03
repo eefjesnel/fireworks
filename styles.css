@@ -160,7 +160,8 @@ h1 {
     60% {
         scale: 20;
     }
-    70%{
+
+    70% {
         scale: 1;
         top: 1.5em;
         left: calc(50% - 4.5em);
@@ -842,7 +843,7 @@ section:nth-of-type(6) {
 section:nth-of-type(7) {
     --indexExplotion: 3;
     left: var(--positionLeftStar4, 46vw);
-    bottom: var(--positionBottomStar4, 70vh);
+    bottom: var(--positionBottomStar4, 60vh);
 }
 
 section:nth-of-type(8) {
@@ -863,8 +864,8 @@ article:nth-of-type(2) article {
     height: auto;
     justify-content: center;
     visibility: hidden;
-    animation: visible 1s 1 3s forwards;
-    z-index: 0;
+    animation: visible 3s 1 3s forwards;
+    background-color: transparent;
 
     form {
         display: flex;
