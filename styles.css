@@ -108,7 +108,7 @@ article:nth-of-type(1) {
     display: flex;
     justify-content: center;
     align-items: center;
-    animation: invisible 1s 1 3s forwards;
+    animation: invisible 1s 1 2s forwards;
 }
 
 @keyframes invisible {
@@ -140,7 +140,7 @@ h1 {
     background-position: left bottom;
     background-clip: text;
     animation: gradient 1s infinite linear,
-        boem 3s 1 forwards;
+        boem 2s 1 forwards;
 }
 
 @keyframes boem {
@@ -864,7 +864,7 @@ article:nth-of-type(2) article {
     height: auto;
     justify-content: center;
     visibility: hidden;
-    animation: visible 3s 1 3s forwards;
+    animation: visible 1s 1 2s forwards;
     background-color: transparent;
 
     form {

@@ -84,3 +84,8 @@ Een aantal pijnpunten die ik onderweg tegenkwam waren:
 3. https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_nesting/Using_CSS_nesting Voor nesting en het nesten van before en afters.
 4. Lisa Fokkinga. Om elementen in een rondje om elkaar te zetten. Ik begreep het niet helemaal na het kijken naar de codepen van Sanne.
 5. https://9elements.github.io/fancy-border-radius/ Om de mooiste border-radiusen te maken.
+
+## Herkansing
+Bij het beoordelingsgesprek liet ik alles zien, maar mijn code was nog niet helemaal goed. We moesten style-queries gebruiken en dat was me niet gelukt. Samen gingen we kijken wat er mogelijk was voor mijn project en hebben we een beginnetje gemaakt. Voor de herkansing heb ik de style-querie en de bijbehorende code afgemaakt. Verder heb ik alles een aantal dingen uit * gehaald en in de root gezet waardoor ik dit met has() beter kon manipuleren. 
+Als laatste heb ik ook mijn titel animatie nog wat aangepast. Hij komt nu leuk binnenvliegen als je de pagina opstart :)
+![code voor has(), nu korter geschreven](/images/verbeterdecode.png)
